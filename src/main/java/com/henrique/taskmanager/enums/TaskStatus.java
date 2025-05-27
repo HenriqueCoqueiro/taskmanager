@@ -1,7 +1,7 @@
 package com.henrique.taskmanager.enums;
 
 public enum TaskStatus {
-    T0_DO,
+    TO_DO,
     IN_PROGRESS,
     DONE
 }

@@ -1,7 +1,4 @@
 
----
-
-````markdown
 # 📝 Task Manager API
 
 API RESTful para gerenciamento de tarefas com autenticação JWT. Projeto criado para fins de prática com **Spring Security** e **JWT**, utilizando **PostgreSQL** no ambiente principal e **H2** como banco de testes.

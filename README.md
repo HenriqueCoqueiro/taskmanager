@@ -1,5 +1,3 @@
-Perfeito! Com isso, ajustei o **README.md** para refletir que você usa H2 para testes, PostgreSQL no ambiente real e que o foco do projeto é praticar autenticação com JWT. Aqui está a versão atualizada e mais completa:
-
 ---
 
 ````markdown

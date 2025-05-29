@@ -1,8 +1,10 @@
 package com.henrique.taskmanager.controller;
 
 import com.henrique.taskmanager.dto.AuthenticationDto;
+import com.henrique.taskmanager.dto.LoginResponseDto;
 import com.henrique.taskmanager.dto.RegisterDto;
 import com.henrique.taskmanager.entities.User;
+import com.henrique.taskmanager.infra.security.TokenService;
 import com.henrique.taskmanager.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +27,17 @@ public class AuthenticationController {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping(value = "/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDto data){
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((User) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDto(token));
     }
 
     @PostMapping(value = "/register")

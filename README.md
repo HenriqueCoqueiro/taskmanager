@@ -1,44 +1,45 @@
+---
 
 # 📝 Task Manager API
 
-API RESTful para gerenciamento de tarefas com autenticação JWT. Projeto criado para fins de prática com **Spring Security** e **JWT**, utilizando **PostgreSQL** no ambiente principal e **H2** como banco de testes.
+RESTful API for task management with JWT authentication. Project created for practicing **Spring Security** and **JWT**, using **PostgreSQL** in the main environment and **H2** as the test database.
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Technologies Used
 
-- Java 17+
-- Spring Boot
-- Spring Security
-- JWT (JSON Web Token)
-- Maven
-- Spring Data JPA
-- PostgreSQL (produção)
-- H2 Database (testes)
-
----
-
-## 🎯 Objetivo do Projeto
-
-Este projeto foi desenvolvido com o objetivo de **praticar a implementação de segurança via JWT** em aplicações Spring Boot, além de consolidar conceitos de autenticação, controle de acesso e manipulação de entidades via API RESTful.
+* Java 17+
+* Spring Boot
+* Spring Security
+* JWT (JSON Web Token)
+* Maven
+* Spring Data JPA
+* PostgreSQL (production)
+* H2 Database (testing)
 
 ---
 
-## 🔐 Autenticação
+## 🎯 Project Goal
 
-A autenticação usa token JWT. É necessário se registrar e, em seguida, fazer login para obter um token.
+This project was developed with the purpose of **practicing JWT-based security implementation** in Spring Boot applications, as well as consolidating concepts of authentication, access control, and entity management via RESTful API.
 
-### 🔸 Registro de usuário
+---
+
+## 🔐 Authentication
+
+Authentication uses JWT tokens. You need to register first and then log in to obtain a token.
+
+### 🔸 User Registration
 
 `POST /auth/register`
 
 ```json
 {
-  "login": "usuario123",
-  "password": "senha123",
+  "login": "user123",
+  "password": "password123",
   "role": "USER"
 }
-````
+```
 
 ### 🔸 Login
 
@@ -46,86 +47,86 @@ A autenticação usa token JWT. É necessário se registrar e, em seguida, fazer
 
 ```json
 {
-  "login": "usuario123",
-  "password": "senha123"
+  "login": "user123",
+  "password": "password123"
 }
 ```
 
-**Resposta:**
+**Response:**
 
 ```json
 {
-  "token": "Bearer <seu_token_aqui>"
+  "token": "Bearer <your_token_here>"
 }
 ```
 
 ---
 
-## 📌 Endpoints de Tarefas
+## 📌 Task Endpoints
 
-🔐 Todos os endpoints exigem token JWT no cabeçalho:
+🔐 All endpoints require the JWT token in the header:
 
 ```
-Authorization: Bearer <seu_token>
+Authorization: Bearer <your_token>
 ```
 
-### 🔹 Listar tarefas
+### 🔹 List Tasks
 
 `GET /tasks`
 
-**Resposta:**
+**Response:**
 
 ```json
 [
   {
     "id": 1,
-    "title": "Estudar Spring",
+    "title": "Study Spring",
     "description": "JWT + Security"
   },
   ...
 ]
 ```
 
-### 🔹 Criar nova tarefa
+### 🔹 Create New Task
 
 `POST /tasks`
 
 ```json
 {
-  "title": "Nova tarefa",
-  "description": "Descrição da tarefa"
+  "title": "New task",
+  "description": "Task description"
 }
 ```
 
 ---
 
-## ⚙️ Como rodar o projeto
+## ⚙️ How to Run the Project
 
-1. Clone o repositório:
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/seuusuario/taskmanager.git
+git clone https://github.com/yourusername/taskmanager.git
 cd taskmanager
 ```
 
-2. Configure o banco de dados no `application.properties`:
+2. Configure the database in `application.properties`:
 
-Para **PostgreSQL**:
+For **PostgreSQL**:
 
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/taskdb
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 ```
 
-Para **H2 (testes)**:
+For **H2 (testing)**:
 
 ```properties
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.h2.console.enabled=true
 ```
 
-3. Compile e execute:
+3. Build and run:
 
 ```bash
 ./mvnw clean install
@@ -134,7 +135,7 @@ spring.h2.console.enabled=true
 
 ---
 
-## 🗂️ Estrutura do Projeto
+## 🗂️ Project Structure
 
 ```
 src/
@@ -148,7 +149,9 @@ src/
 
 ---
 
-## ✍️ Autor
+## ✍️ Author
 
 Henrique Coqueiro de Melo
-Projeto com fins educacionais
+Educational project
+
+---
